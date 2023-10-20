@@ -5,7 +5,7 @@ import { Images } from "../../dummyData/DummyData";
 
 const Carousel = () => {
   const items = Images.map((img) => (
-    <img src={img.image} alt="image" className="w-full h-fit" />
+    <img src={img.image} alt="image" className="w-full " />
   ));
 
   return (
