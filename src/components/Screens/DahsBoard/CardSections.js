@@ -1,15 +1,16 @@
 import React from "react";
+import Kurta from "../../../assets/images/4.jpg";
 
-const CardSection = ({title,img}) => {
+const CardSections = () => {
   return (
     <div className="max-w-[1800px] mx-auto">
       <h2 className="my-5 font-medium text-lg tracking-wide hover:underline ">
-        {title}
+        Men's Kurta
       </h2>
       <div className="mb-5">
         <div className="cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-md overflow-hidden w-60 mx-4">
           <div className="mt-3">
-            <img src={img} className="rounded-md" />
+            <img src={Kurta} className="rounded-md" />
           </div>
           <div className="p-4">
             <div className="flex justify-between">
@@ -27,4 +28,4 @@ const CardSection = ({title,img}) => {
   );
 };
 
-export default CardSection;
+export default CardSections;

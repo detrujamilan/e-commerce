@@ -1,15 +1,15 @@
 import React from "react";
 import AliceCarousel from "react-alice-carousel";
-import CardSection from "../CardSection";
+import CardSections from "./CardSections";
 
-const CardCrousal = () => {
+const CarousalSection = () => {
   const responsive = {
     0: { items: 1 },
-    720: { items: 2 },
-    1024: { items: 5 },
+    720: { items: 3 },
+    1024: { items: 4 },
   };
 
-  const items = [1, 1, 1, 1].map((item) => <CardSection />);
+  const items = [1, 1, 1, 1].map((item) => <CardSections />);
   return (
     <div className="relative px-4 lg:px-8">
       <div className="relative p-5">
@@ -26,4 +26,4 @@ const CardCrousal = () => {
   );
 };
 
-export default CardCrousal;
+export default CarousalSection;
