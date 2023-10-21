@@ -1,15 +1,18 @@
 import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import CardSections from "./CardSections";
+import { mens_kurta } from "../../data/Mens Clothes/Kurta";
 
 const CarousalSection = () => {
   const responsive = {
     0: { items: 1 },
     720: { items: 3 },
-    1024: { items: 4 },
+    1024: { items: 6 },
   };
 
-  const items = [1].map((item) => <CardSections />);
+  const items = mens_kurta
+    .slice(0, 10)
+    .map((item) => <CardSections product={item} />);
   return (
     <div className="relative px-4 lg:px-8">
       <div className="relative p-5">
@@ -19,7 +22,6 @@ const CarousalSection = () => {
           responsive={responsive}
           controlsStrategy="alternate"
           autoPlayInterval={1000}
-          infinite
           disableDotsControls
           disableButtonsControls
         />

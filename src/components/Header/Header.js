@@ -264,7 +264,6 @@ export const Header = () => {
                                 {section.name}
                               </p>
                               <ul
-                                role="list"
                                 aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
                                 className="mt-6 flex flex-col space-y-6"
                               >
@@ -436,7 +435,6 @@ export const Header = () => {
                                               {section.name}
                                             </p>
                                             <ul
-                                              role="list"
                                               aria-labelledby={`${section.name}-heading`}
                                               className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                             >
