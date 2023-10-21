@@ -10,7 +10,7 @@ const CardSections = () => {
       <div className="mb-5">
         <div className="cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-md overflow-hidden w-60 mx-4">
           <div className="mt-3">
-            <img src={Kurta} className="rounded-md" />
+            <img src={Kurta} alt="Kurta" className="rounded-md" />
           </div>
           <div className="p-4">
             <div className="flex justify-between">

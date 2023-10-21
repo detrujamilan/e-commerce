@@ -6,6 +6,8 @@ const DashBoard = () => {
   return (
     <div>
       <Carousel />
+      <CarousalSection/>
+      <CarousalSection/>
     </div>
   );
 };
