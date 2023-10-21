@@ -1,7 +1,7 @@
 import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { Images } from "../../../common/dummyData/DummyData";
+import { Images } from "../../common/dummyData/DummyData";
 
 const Carousel = () => {
   const items = Images.map((img) => (

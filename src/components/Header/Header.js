@@ -7,7 +7,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { AddToCart } from "../../components/Screens/AddToCart/AddToCart";
+import { AddToCart } from "../../screens/AddToCart/AddToCart";
 
 const navigation = {
   categories: [

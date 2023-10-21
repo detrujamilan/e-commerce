@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { InputFiled } from "../../../common/Inputs/InputFiled";
-import ButtonField from "../../../common/Buttons/ButtonField";
+import { InputFiled } from "../../common/Inputs/InputFiled";
+import ButtonField from "../../common/Buttons/ButtonField";
 import { useNavigate } from "react-router-dom";
-import Forms from "../../../common/Forms/Forms";
+import Forms from "../../common/Forms/Forms";
 import { ToastContainer, toast } from "react-toastify";
 
-const Signup = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSignup = () => {
+  const handlLogin = () => {
     if (!email || !password) {
       toast.warning("Please required all fields");
       return;
@@ -20,7 +20,7 @@ const Signup = () => {
     <>
       <ToastContainer />
       <Forms
-        pagetitle={"Sign in to your account"}
+        pagetitle={"Login"}
         EmailLabel={"Email Address"}
         emailInput={
           <InputFiled
@@ -45,19 +45,19 @@ const Signup = () => {
         }
         ButtonField={
           <ButtonField
-            title={"Sign Up"}
+            title={"Login"}
             className="w-full mt-5"
-            onclick={handleSignup}
+            onclick={handlLogin}
           />
         }
         pageDescription={
           <p className="mt-5">
-            Already a user?
+            Not a member?
             <span
               className="text-blue-500 cursor-pointer"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/signup")}
             >
-              &nbsp;LOGIN
+              &nbsp;Register
             </span>
           </p>
         }
@@ -66,4 +66,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

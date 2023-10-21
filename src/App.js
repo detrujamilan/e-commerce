@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./common/Header/Header";
-import DashBoard from "./components/Screens/DahsBoard/DashBoard";
-import Signup from "./components/Screens/SignUp/Signup";
-import Login from "./components/Screens/Login/Login";
-import PageNotFound from "./common/PageNotFound/PageNotFound";
+import DashBoard from "./screens/DahsBoard/DashBoard";
+import Signup from "./screens/SignUp/Signup";
+import Login from "./screens/Login/Login";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
+import Header from "./components/Header/Header";
 
 function App() {
   return (

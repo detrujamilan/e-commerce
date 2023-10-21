@@ -1,5 +1,5 @@
 import React from "react";
-import Kurta from "../../../assets/images/4.jpg";
+import Kurta from "../../assets/images/4.jpg";
 
 const CardSections = () => {
   return (
