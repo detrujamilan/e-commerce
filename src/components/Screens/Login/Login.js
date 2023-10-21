@@ -21,7 +21,7 @@ const Login = () => {
       <ToastContainer />
       <Forms
         pagetitle={"Login"}
-        EmailLabel={"Email"}
+        EmailLabel={"Email Address"}
         emailInput={
           <InputFiled
             value={email}

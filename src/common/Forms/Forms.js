@@ -1,5 +1,4 @@
 import React from "react";
-import { InputFiled } from "../Inputs/InputFiled";
 
 const Forms = ({
   pagetitle,

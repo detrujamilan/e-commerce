@@ -50,14 +50,16 @@ const Signup = () => {
             onclick={handleSignup}
           />
         }
-        ButtonFieldLogin={
-          <ButtonField
-            title={"Login"}
-            className="w-full mt-5"
-            onclick={() => {
-              navigate("/");
-            }}
-          />
+        pageDescription={
+          <p className="mt-5">
+            Already a user?
+            <span
+              className="text-blue-500 cursor-pointer"
+              onClick={() => navigate("/")}
+            >
+              &nbsp;LOGIN
+            </span>
+          </p>
         }
       />
     </>
