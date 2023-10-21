@@ -20,6 +20,8 @@ const CarousalSection = () => {
           controlsStrategy="alternate"
           autoPlayInterval={1000}
           infinite
+          disableDotsControls
+          disableButtonsControls
         />
       </div>
     </div>

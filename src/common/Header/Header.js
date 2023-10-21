@@ -7,6 +7,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { AddToCart } from "../../components/Screens/AddToCart/AddToCart";
 
 const navigation = {
   categories: [
@@ -144,6 +145,15 @@ function classNames(...classes) {
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
   return (
     <>
       <div className="bg-white">
@@ -313,7 +323,7 @@ export const Header = () => {
           </Dialog>
         </Transition.Root>
 
-        <header className="relative bg-white z-50">
+        <header className={`relative bg-white  ${isOpen ? "z-0 " : "z-50"}`}>
           <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
             Get free delivery on orders over $100
           </p>
@@ -501,6 +511,7 @@ export const Header = () => {
                   <div className="ml-4 flow-root lg:ml-6">
                     <Link className="group -m-2 flex items-center p-2">
                       <ShoppingBagIcon
+                        onClick={openModal}
                         className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
                       />
@@ -516,6 +527,7 @@ export const Header = () => {
           </nav>
         </header>
       </div>
+      <AddToCart closeModal={closeModal} isOpen={isOpen} />
     </>
   );
 };

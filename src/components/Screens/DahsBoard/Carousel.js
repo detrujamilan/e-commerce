@@ -5,7 +5,7 @@ import { Images } from "../../../common/dummyData/DummyData";
 
 const Carousel = () => {
   const items = Images.map((img) => (
-    <img src={img.image} alt="image" className="w-full " />
+    <img src={img.image} alt="image" className="w-full" />
   ));
 
   return (
@@ -17,6 +17,8 @@ const Carousel = () => {
         autoPlay
         autoPlayInterval={1000}
         infinite
+        disableDotsControls
+        disableButtonsControls
       />
     </>
   );
