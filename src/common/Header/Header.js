@@ -307,20 +307,6 @@ export const Header = () => {
                       </Link>
                     </div>
                   </div>
-
-                  <div className="border-t border-gray-200 px-4 py-6">
-                    <a href="#" className="-m-2 flex items-center p-2">
-                      <img
-                        src="https://tailwindui.com/img/flags/flag-canada.svg"
-                        alt=""
-                        className="block h-auto w-5 flex-shrink-0"
-                      />
-                      <span className="ml-3 block text-base font-medium text-gray-900">
-                        CAD
-                      </span>
-                      <span className="sr-only">, change currency</span>
-                    </a>
-                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -502,21 +488,18 @@ export const Header = () => {
 
                   {/* Search */}
                   <div className="flex lg:ml-6">
-                    <a
-                      href="#"
-                      className="p-2 text-gray-400 hover:text-gray-500"
-                    >
+                    <Link className="p-2 text-gray-400 hover:text-gray-500">
                       <span className="sr-only">Search</span>
                       <MagnifyingGlassIcon
                         className="h-6 w-6"
                         aria-hidden="true"
                       />
-                    </a>
+                    </Link>
                   </div>
 
                   {/* Cart */}
                   <div className="ml-4 flow-root lg:ml-6">
-                    <a href="#" className="group -m-2 flex items-center p-2">
+                    <Link className="group -m-2 flex items-center p-2">
                       <ShoppingBagIcon
                         className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                         aria-hidden="true"
@@ -525,7 +508,7 @@ export const Header = () => {
                         0
                       </span>
                       <span className="sr-only">items in cart, view bag</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
