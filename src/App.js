@@ -3,7 +3,7 @@ import Header from "./common/Header/Header";
 import DashBoard from "./components/Screens/DahsBoard/DashBoard";
 import Signup from "./components/Screens/SignUp/Signup";
 import Login from "./components/Screens/Login/Login";
-import PageNotFound from "./common/NotFound/PageNotFound";
+import PageNotFound from "./common/PageNotFound/PageNotFound";
 
 function App() {
   return (
