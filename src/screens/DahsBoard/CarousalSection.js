@@ -3,7 +3,7 @@ import AliceCarousel from "react-alice-carousel";
 import CardSections from "./CardSections";
 import { mens_kurta } from "../../data/Mens Clothes/Kurta";
 
-const CarousalSection = () => {
+const CarousalSection = ({ sectionName }) => {
   const responsive = {
     0: { items: 1 },
     720: { items: 3 },
@@ -15,6 +15,7 @@ const CarousalSection = () => {
     .map((item) => <CardSections product={item} />);
   return (
     <div className="relative px-4 lg:px-8">
+      <h2 className="text-lg font-medium pt-5">{sectionName}</h2>
       <div className="relative p-5">
         <AliceCarousel
           mouseTracking
