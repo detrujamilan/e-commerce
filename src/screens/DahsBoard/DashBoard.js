@@ -3,6 +3,7 @@ import CarousalSection from "./CarousalSection";
 import Carousel from "./Carousel";
 import Product from "../../components/Product/Product";
 import ProductDetails from "../../components/Product/ProductDetails/ProductDetails";
+import CheckOutForm from "../../components/CheckoutForm/CheckOutForm";
 
 const DashBoard = () => {
   return (
@@ -14,7 +15,8 @@ const DashBoard = () => {
       <CarousalSection sectionName={"Women's Saree"} />
       <CarousalSection sectionName={"Women's Dress"} /> */}
       {/* <Product /> */}
-      <ProductDetails/>
+      <ProductDetails />
+      <CheckOutForm />
     </div>
   );
 };
