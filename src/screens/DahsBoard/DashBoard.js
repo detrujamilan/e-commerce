@@ -2,6 +2,7 @@ import React from "react";
 import CarousalSection from "./CarousalSection";
 import Carousel from "./Carousel";
 import Product from "../../components/Product/Product";
+import ProductDetails from "../../components/Product/ProductDetails/ProductDetails";
 
 const DashBoard = () => {
   return (
@@ -12,7 +13,8 @@ const DashBoard = () => {
       <CarousalSection sectionName={"Men's Shirt"} />
       <CarousalSection sectionName={"Women's Saree"} />
       <CarousalSection sectionName={"Women's Dress"} /> */}
-      <Product />
+      {/* <Product /> */}
+      <ProductDetails/>
     </div>
   );
 };

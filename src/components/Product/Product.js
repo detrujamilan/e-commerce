@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { mens_kurta } from "../../data/Mens Clothes/Kurta";
 import ProductCard from "./CategorySection/ProductCard";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -69,6 +70,34 @@ function classNames(...classes) {
 
 export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleFilter = (value, sectionId) => {
+    const searchParams = new URLSearchParams(location.search);
+    let filterValue = searchParams.getAll(sectionId);
+
+    if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
+      filterValue = filterValue[0].split(",").filter((item) => item != value);
+
+      if (filterValue.length === 0) {
+        searchParams.delete(sectionId);
+      }
+    } else {
+      filterValue.push(value);
+    }
+    if (filterValue.length > 0) {
+      searchParams.set(sectionId, filterValue.join(","));
+    }
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
+  };
+  // const handleRadioFilterChange = (e, sectionId) => {
+  //   const searchParams = new URLSearchParams(location.search);
+  //   searchParams.set(sectionId, e.target.value);
+  //   const query = searchParams.toString();
+  //   navigate({ search: `?${query}` });
+  // };
 
   return (
     <div className="bg-white">
@@ -116,10 +145,7 @@ export default function Product() {
                 {/* Filters */}
                 <form className="mt-4 border-t border-gray-200">
                   <h3 className="sr-only">Categories</h3>
-                  <ul
-                    role="list"
-                    className="px-2 py-3 font-medium text-gray-900"
-                  >
+                  <ul className="px-2 py-3 font-medium text-gray-900">
                     {subCategories.map((category) => (
                       <li key={category.name}>
                         <a href={category.href} className="block px-2 py-3">
@@ -165,11 +191,13 @@ export default function Product() {
                                   className="flex items-center"
                                 >
                                   <input
+                                    onChange={() => {
+                                      handleFilter(option.value, section.id);
+                                    }}
                                     id={`filter-mobile-${section.id}-${optionIdx}`}
                                     name={`${section.id}[]`}
                                     defaultValue={option.value}
                                     type="checkbox"
-                                    defaultChecked={option.checked}
                                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                   />
                                   <label
@@ -198,7 +226,6 @@ export default function Product() {
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">
             New Arrivals
           </h1>
-
           <div className="flex items-center">
             <Menu as="div" className="relative inline-block text-left">
               <div>
@@ -270,10 +297,7 @@ export default function Product() {
           <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
             <form className="hidden lg:block">
               <h3 className="sr-only">Categories</h3>
-              <ul
-                role="list"
-                className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
-              >
+              <ul className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
                 {subCategories.map((category) => (
                   <li key={category.name}>
                     <a href={category.href}>{category.name}</a>
@@ -317,11 +341,13 @@ export default function Product() {
                               className="flex items-center"
                             >
                               <input
+                                onChange={() => {
+                                  handleFilter(option.value, section.id);
+                                }}
                                 id={`filter-${section.id}-${optionIdx}`}
                                 name={`${section.id}[]`}
                                 defaultValue={option.value}
                                 type="checkbox"
-                                defaultChecked={option.checked}
                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                               />
                               <label

@@ -1,6 +1,5 @@
 import React from "react";
 const ProductCard = ({ item }) => {
-  console.log("item", item);
   return (
     <>
       <div className="cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-md  w-60 mx-4 my-5">

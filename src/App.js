@@ -19,7 +19,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-        <Footer />
+        {window.location.pathname !== "/" &&
+          window.location.pathname !== "/signup" && <Footer />}
       </BrowserRouter>
     </>
   );
