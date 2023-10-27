@@ -36,7 +36,7 @@ const Login = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          height: screenHeight,
+          height: screenHeight-100,
           alignItems: "center",
         }}
       >

@@ -9,6 +9,10 @@ const Forms = ({
   ButtonField,
   pageDescription,
   ButtonFieldLogin,
+  firstNameLabel,
+  firstNameInput,
+  lastNameInput,
+  lastNameLabel,
 }) => {
   return (
     <div>
@@ -21,6 +25,18 @@ const Forms = ({
 
         <div className="mt-10 flex justify-center flex-col items-center ">
           <div>
+            <div className="mt-2">
+              <label className="block text-sm font-medium leading-6 text-gray-900">
+                {firstNameLabel}
+              </label>
+              <div className="mt-2">{firstNameInput}</div>
+            </div>
+            <div className="mt-2">
+              <label className="block text-sm font-medium leading-6 text-gray-900">
+                {lastNameLabel}
+              </label>
+              <div className="mt-2">{lastNameInput}</div>
+            </div>
             <div className="mt-2">
               <label className="block text-sm font-medium leading-6 text-gray-900">
                 {EmailLabel}

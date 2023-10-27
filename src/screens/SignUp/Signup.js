@@ -4,19 +4,50 @@ import ButtonField from "../../common/Buttons/ButtonField";
 import { useNavigate } from "react-router-dom";
 import Forms from "../../common/Forms/Forms";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+import { baseUrl } from "../../utils/utils";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
 
   const navigate = useNavigate();
 
   const handleSignup = () => {
-    if (!email || !password) {
+    if (!email || !password || !firstName || !lastName) {
       toast.warning("Please required all fields");
       return;
     }
+    const data = {
+      email: email,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
+    };
+
+    axios
+      .post(`${baseUrl}/signup`, data)
+      .then((data) => {
+        if (data.status === 200) {
+          toast.success("registration successful");
+        }
+        setEmail("");
+        setPassword("");
+        setFirstName("");
+        setLastName("");
+        const token = data.data.token;
+        localStorage.setItem("token", token);
+        window.location.href = "/dashboard";
+      })
+      .catch((error) => {
+        console.log("error", error);
+        if(error.response.status === 400){
+          toast.error(error.response.data.message)
+        }
+      });
   };
 
   useEffect(() => {
@@ -37,13 +68,35 @@ const Signup = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          height: screenHeight,
+          height: screenHeight - 100,
           alignItems: "center",
         }}
       >
         <Forms
           pagetitle={"Sign in to your account"}
           EmailLabel={"Email Address"}
+          firstNameLabel={"First Name"}
+          lastNameLabel={"Last Name"}
+          firstNameInput={
+            <InputFiled
+              value={firstName}
+              type="email"
+              className="w-[20rem] "
+              onChange={(e) => {
+                setFirstName(e.target.value);
+              }}
+            />
+          }
+          lastNameInput={
+            <InputFiled
+              value={lastName}
+              type="email"
+              className="w-[20rem] "
+              onChange={(e) => {
+                setLastName(e.target.value);
+              }}
+            />
+          }
           emailInput={
             <InputFiled
               value={email}
