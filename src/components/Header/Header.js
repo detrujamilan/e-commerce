@@ -6,7 +6,7 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AddToCart } from "../../screens/AddToCart/AddToCart";
 import ButtonField from "../../common/Buttons/ButtonField";
 
@@ -300,12 +300,15 @@ export const Header = () => {
 
                   <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                     <div className="flow-root">
-                      <Link
-                        to="/"
+                      <div
+                        onClick={() => {
+                          Navigate("/");
+                          localStorage.removeItem("token");
+                        }}
                         className="-m-2 block p-2 font-medium text-gray-900"
                       >
                         Sign in
-                      </Link>
+                      </div>
                     </div>
                     <div className="flow-root">
                       <Link
@@ -480,7 +483,10 @@ export const Header = () => {
                 <div className="ml-auto flex items-center">
                   <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                     <Link
-                      to="/"
+                      onClick={() => {
+                        Navigate("/signup");
+                        localStorage.removeItem("token");
+                      }}
                       className="text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       Sign in

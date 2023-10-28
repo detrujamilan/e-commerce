@@ -4,6 +4,8 @@ import ButtonField from "../../common/Buttons/ButtonField";
 import { useNavigate } from "react-router-dom";
 import Forms from "../../common/Forms/Forms";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+import { baseUrl } from "../../utils/utils";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,6 +19,37 @@ const Login = () => {
       toast.warning("Please required all fields");
       return;
     }
+    const token = localStorage.getItem("token");
+
+    const data = {
+      email: email,
+      password: password,
+    };
+
+    axios
+      .post(`${baseUrl}/login`, data, {
+        headers: {
+          Authorization: `Bearer${token}`,
+        },
+      })
+      .then((response) => {
+        console.log("response", response);
+        const token = response.data.jwt;
+        localStorage.setItem("token",token);
+        if (response.status === 200) {
+          toast.success("Login successful");
+        }
+        window.location.href = "/dashboard";
+      })
+      .catch((error) => {
+        if (error.response.status === 400) {
+          toast.error("Invalid email or password");
+        }
+        if (error.response.status === 401) {
+          toast.error("Invalid Password");
+        }
+        console.log("error", error);
+      });
   };
 
   useEffect(() => {
@@ -36,7 +69,7 @@ const Login = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          height: screenHeight-100,
+          height: screenHeight - 100,
           alignItems: "center",
         }}
       >

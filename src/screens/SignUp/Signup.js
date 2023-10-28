@@ -43,7 +43,6 @@ const Signup = () => {
         window.location.href = "/dashboard";
       })
       .catch((error) => {
-        console.log("error", error);
         if (error.response.status === 400) {
           toast.error(error.response.data.message);
         }
