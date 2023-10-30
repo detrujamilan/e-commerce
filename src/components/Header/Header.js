@@ -6,7 +6,7 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AddToCart } from "../../screens/AddToCart/AddToCart";
 import ButtonField from "../../common/Buttons/ButtonField";
 
@@ -147,6 +147,7 @@ function classNames(...classes) {
 export const Header = () => {
   const [open, setOpen] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   function closeModal() {
     setIsOpen(false);
@@ -301,22 +302,14 @@ export const Header = () => {
                   <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                     <div className="flow-root">
                       <div
+                        to="/"
                         onClick={() => {
-                          Navigate("/");
                           localStorage.removeItem("token");
                         }}
                         className="-m-2 block p-2 font-medium text-gray-900"
                       >
                         Sign in
                       </div>
-                    </div>
-                    <div className="flow-root">
-                      <Link
-                        to="/signup"
-                        className="-m-2 block p-2 font-medium text-gray-900"
-                      >
-                        Create account
-                      </Link>
                     </div>
                   </div>
                 </Dialog.Panel>
@@ -483,8 +476,8 @@ export const Header = () => {
                 <div className="ml-auto flex items-center">
                   <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                     <Link
+                      to="/"
                       onClick={() => {
-                        Navigate("/signup");
                         localStorage.removeItem("token");
                       }}
                       className="text-sm font-medium text-gray-700 hover:text-gray-800"
@@ -492,12 +485,6 @@ export const Header = () => {
                       Sign in
                     </Link>
                     <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                    <Link
-                      to="/signup"
-                      className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                    >
-                      Create account
-                    </Link>
                   </div>
 
                   {/* Search */}
