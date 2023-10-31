@@ -1,6 +1,18 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+
+  const unShowFooter =
+    location.pathname !== "/" &&
+    location.pathname !== "/signup" &&
+    location.pathname !== "*";
+
+  if (!unShowFooter) {
+    return null;
+  }
+
   return (
     <div className="mt-10">
       <footer className="bg-indigo-600  text-center text-white lg:text-left">
@@ -11,19 +23,21 @@ const Footer = () => {
                 Company
               </h6>
               <p className="mb-4">
-                <a className="text-white dark:text-neutral-200">About</a>
+                <Link className="text-white dark:text-neutral-200">About</Link>
               </p>
               <p className="mb-4">
-                <a className="text-white dark:text-neutral-200">Blog</a>
+                <Link className="text-white dark:text-neutral-200">Blog</Link>
               </p>
               <p className="mb-4">
-                <a className="text-white dark:text-neutral-200">Jobs</a>
+                <Link className="text-white dark:text-neutral-200">Jobs</Link>
               </p>
               <p className="mb-4">
-                <a className="text-white dark:text-neutral-200">Press</a>
+                <Link className="text-white dark:text-neutral-200">Press</Link>
               </p>
               <p>
-                <a className="text-white dark:text-neutral-200">Partners</a>
+                <Link className="text-white dark:text-neutral-200">
+                  Partners
+                </Link>
               </p>
             </div>
             <div className="">
@@ -31,19 +45,29 @@ const Footer = () => {
                 Soluations
               </h6>
               <p className="mb-4">
-                <a className="text-white dark:text-neutral-200">Marketing</a>
+                <Link className="text-white dark:text-neutral-200">
+                  Marketing
+                </Link>
               </p>
               <p className="mb-4">
-                <a className="text-white dark:text-neutral-200">Analytics</a>
+                <Link className="text-white dark:text-neutral-200">
+                  Analytics
+                </Link>
               </p>
               <p className="mb-4">
-                <a className="text-white dark:text-neutral-200">Commerce</a>
+                <Link className="text-white dark:text-neutral-200">
+                  Commerce
+                </Link>
               </p>
               <p className="mb-4">
-                <a className="text-white dark:text-neutral-200">Commerce</a>
+                <Link className="text-white dark:text-neutral-200">
+                  Commerce
+                </Link>
               </p>
               <p>
-                <a className="text-white dark:text-neutral-200">Insight</a>
+                <Link className="text-white dark:text-neutral-200">
+                  Insight
+                </Link>
               </p>
             </div>
             <div className="">
@@ -51,10 +75,12 @@ const Footer = () => {
                 Documentation
               </h6>
               <p className="mb-4">
-                <a className="text-white dark:text-neutral-200">Guides</a>
+                <Link className="text-white dark:text-neutral-200">Guides</Link>
               </p>
               <p className="mb-4">
-                <a className="text-white dark:text-neutral-200">API Status</a>
+                <Link className="text-white dark:text-neutral-200">
+                  API Status
+                </Link>
               </p>
             </div>
             <div>

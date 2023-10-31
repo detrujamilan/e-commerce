@@ -6,7 +6,7 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AddToCart } from "../../screens/AddToCart/AddToCart";
 import ButtonField from "../../common/Buttons/ButtonField";
 
@@ -147,7 +147,16 @@ function classNames(...classes) {
 export const Header = () => {
   const [open, setOpen] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
+  const location = useLocation();
+
+  const unShowHeader =
+    location.pathname !== "/" &&
+    location.pathname !== "/signup" &&
+    location.pathname !== "*";
+
+  if (!unShowHeader) {
+    return null;
+  }
 
   function closeModal() {
     setIsOpen(false);
@@ -156,6 +165,7 @@ export const Header = () => {
   function openModal() {
     setIsOpen(true);
   }
+
   return (
     <>
       <div className="bg-white">
