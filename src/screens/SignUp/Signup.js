@@ -31,9 +31,9 @@ const Signup = () => {
     axios
       .post(`${baseUrl}/signup`, data)
       .then((data) => {
-        if (data.status === 200) {
-          toast.success("registration successful");
-        }
+        // if (data.status === 200) {
+        //   toast.success("registration successful");
+        // }
         setEmail("");
         setPassword("");
         setFirstName("");
@@ -43,9 +43,10 @@ const Signup = () => {
         window.location.href = "/dashboard";
       })
       .catch((error) => {
-        if (error.response.status === 400) {
-          toast.error(error.response.data.message);
-        }
+        console.log(error);
+        // if (error.response.status === 400) {
+        //   toast.error(error.response.data.message);
+        // }
       });
   };
 
