@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { mens_kurta } from "../../data/Mens Clothes/Kurta";
 import ProductCard from "./CategorySection/ProductCard";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -78,7 +78,7 @@ export default function Product() {
     let filterValue = searchParams.getAll(sectionId);
 
     if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
-      filterValue = filterValue[0].split(",").filter((item) => item != value);
+      filterValue = filterValue[0].split(",").filter((item) => item !== value);
 
       if (filterValue.length === 0) {
         searchParams.delete(sectionId);
